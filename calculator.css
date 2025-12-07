@@ -1,0 +1,71 @@
+:root{
+  --bg:#0f1724;
+  --panel:#111827;
+  --accent:#06b6d4;
+  --key:#1f2937;
+  --key-hover:#374151;
+  --operator:#ef4444;
+  --text:#e6edf3;
+}
+*{box-sizing:border-box}
+html,body{height:100%;}
+body{
+  margin:0;
+  font-family:Inter, Roboto, system-ui, -apple-system, 'Segoe UI', Arial;
+  background:linear-gradient(180deg,var(--bg),#071029);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
+}
+.calc-app{width:100%;max-width:420px}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.calculator{
+  background:radial-gradient(1200px 600px at 10% 20%, rgba(6,182,212,0.06), transparent 10%), var(--panel);
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 8px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+}
+.display{
+  background:rgba(0,0,0,0.25);
+  border-radius:10px;
+  padding:18px 14px;
+  font-size:32px;
+  text-align:right;
+  min-height:56px;
+  margin-bottom:12px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  letter-spacing:0.6px;
+}
+.keys{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+.key{
+  background:var(--key);
+  border-radius:10px;
+  padding:16px 12px;
+  font-size:18px;
+  border:none;
+  cursor:pointer;
+  color:var(--text);
+  transition:transform .12s ease, box-shadow .12s ease, background .12s;
+  box-shadow:0 4px 10px rgba(2,6,23,0.5);
+}
+.key:active{transform:translateY(1px) scale(.997)}
+.key:hover{background:var(--key-hover)}
+.key.operator{background:linear-gradient(180deg,var(--operator),#b91c1c);color:white}
+.key.function{background:transparent;border:1px solid rgba(255,255,255,0.04)}
+.key.zero{grid-column:span 2}
+.key.equals{background:linear-gradient(180deg,var(--accent),#0ea5a3);font-weight:600}
+.hint{opacity:.6;font-size:13px;margin-top:10px;text-align:center}
+
+@media (max-width:420px){
+  .display{font-size:26px;padding:12px}
+  .key{padding:12px;font-size:16px}
+}
